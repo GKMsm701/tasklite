@@ -75,6 +75,9 @@ def sort_by_priority(tasks):
     TODO(enhancement): not implemented yet. Currently returns tasks
     unsorted. Should also be wired up behind a `list --sort` flag.
     """
+    return sorted(
+        tasks, key=lambda t: PRIORITY_ORDER.get(t.get("priority", "normal"), 1)
+    )
     return tasks
 
 
